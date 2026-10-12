@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "What is your favourite holiday destination?"
+  },
+  {
+    "id": 2,
+    "question": "What is your favourite cuisine?"
+  },
+  {
+    "id": 3,
+    "question": "What is your favourite movie?"
+  },
+  {
+    "id": 4,
+    "question": "Who is your favourite family member?"
+  },
+  {
+    "id": 5,
+    "question": "What is your favourite hobby that not much people know about?"
+  },
+  {
+    "id": 6,
+    "question": "Tell me about an embarrassing moment in your life."
+  },
+  {
+    "id": 7,
+    "question": "Tell me about a present that you received that you have kept for many years?"
+  },
+  {
+    "id": 8,
+    "question": "What is your favourite song?"
+  },
+  {
+    "id": 9,
+    "question": "What activity do you like to do most after lunch on Sunday afternoons?"
+  },
+  {
+    "id": 10,
+    "question": "What is your favourite snack?"
+  }
+]

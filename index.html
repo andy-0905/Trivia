@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title>Trivia</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    max-width:800px;
+    margin:40px auto;
+}
+
+.question{
+    margin-bottom:20px;
+}
+
+input[type=text]{
+    width:100%;
+    padding:8px;
+}
+
+button{
+    padding:10px 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Trivia Entry</h1>
+
+<form id="quizForm">
+
+<label>Name</label>
+<input type="text" id="name" required>
+
+<div id="questions"></div>
+
+<button type="submit">
+Submit
+</button>
+
+</form>
+
+<script>
+
+let selectedQuestions = [];
+
+async function loadQuestions(){
+
+    const response =
+      await fetch("questions.json");
+
+    const data =
+      await response.json();
+
+    selectedQuestions =
+        data.sort(
+          () => 0.5 - Math.random()
+        )
+        .slice(0,3);
+
+    const container =
+      document.getElementById(
+        "questions"
+      );
+
+    selectedQuestions.forEach(
+      (q,index) => {
+
+      container.innerHTML += `
+      <div class="question">
+
+        <h3>
+          Question ${index+1}
+        </h3>
+
+        <p>${q.question}</p>
+
+        <input
+          type="text"
+          id="answer${index}"
+          required
+        />
+
+      </div>
+      `;
+    });
+}
+
+loadQuestions();
+
+document
+.getElementById("quizForm")
+.addEventListener(
+"submit",
+async function(e){
+
+    e.preventDefault();
+
+    const payload = {
+
+      name:
+      document.getElementById(
+        "name"
+      ).value,
+
+      questions:
+
+      selectedQuestions.map(
+      (q,index) => ({
+
+        question:q.question,
+
+        answer:
+        document.getElementById(
+          `answer${index}`
+        ).value
+
+      }))
+    };
+
+    await fetch(
+      "https://script.google.com/macros/s/AKfycby1x7NHWpOfuBMDCNN_NCGkEvpU_tiVNOEz1LgLEj-iDHJUmvCAYhwOuYmpRDpEPn_h5g/exec",
+      {
+        method:"POST",
+        body:JSON.stringify(payload)
+      }
+    );
+
+    alert(
+      "Thanks! Your responses have been recorded."
+    );
+
+    document
+      .getElementById("quizForm")
+      .reset();
+});
+
+</script>
+
+</body>
+</html>
