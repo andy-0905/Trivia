@@ -132,52 +132,68 @@ async function(e){
 
     e.preventDefault();
 
-    const payload = {
+    const submitBtn = document.getElementById("submitBtn");
 
-      name:
-      document.getElementById(
-        "name"
-      ).value,
+    // Lock button immediately
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting...";
 
-      questions:
+    try {
 
-      selectedQuestions.map(
-      (q,index) => ({
+      const payload = {
 
-        question:q.question,
-
-        answer:
+        name:
         document.getElementById(
-          `answer${index}`
-        ).value
+          "name"
+        ).value,
 
-      })),
+        questions:
 
-      customQuestion: document.getElementById("customQuestion").value,
-      customAnswer: document.getElementById("customAnswer").value
-    };
+        selectedQuestions.map(
+        (q,index) => ({
 
-    await fetch(
-      "https://script.google.com/macros/s/AKfycby1x7NHWpOfuBMDCNN_NCGkEvpU_tiVNOEz1LgLEj-iDHJUmvCAYhwOuYmpRDpEPn_h5g/exec",
-      {
-        method:"POST",
-        body:JSON.stringify(payload)
-      }
-    );
+          question:q.question,
 
-    alert(
-      "Thanks! Your responses have been recorded."
-    );
+          answer:
+          document.getElementById(
+            `answer${index}`
+          ).value
 
-    // Clear form
-    document.getElementById("quizForm").reset();
+        })),
 
-    // Clear generated questions
-    document.getElementById("questions").innerHTML = "";
+        customQuestion:
+          document.getElementById(
+            "customQuestion"
+          ).value,
 
-    document
-      .getElementById("quizForm")
-      .reset();
+        customAnswer:
+          document.getElementById(
+            "customAnswer"
+          ).value
+      };
+
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzcFQfX7BVXzRsGpgeRIv6cCfg_4XgEvXLxamYKGHLlSR_ba3Ao2HflOx93J-R5ZyPRZA/exec",
+        {
+          method:"POST",
+          body:JSON.stringify(payload)
+        }
+      );
+
+      alert(
+        "Thanks! Your responses have been recorded."
+      );
+      // Refresh page entirely
+      location.reload();
+
+    } catch(err) {
+
+        alert("Submission failed. Please try again.");
+
+        // Re-enable button if submission fails
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Submit";
+    }
 });
 
 </script>
