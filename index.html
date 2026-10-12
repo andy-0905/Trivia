@@ -90,6 +90,36 @@ async function loadQuestions(){
       </div>
       `;
     });
+
+    // Question 4 - Participant's own question
+
+    container.innerHTML += `
+    <div class="question">
+
+      <h3>Question 4</h3>
+
+      <p>Create your own trivia question:</p>
+
+      <input
+        type="text"
+        id="customQuestion"
+        placeholder="Enter your question"
+        required
+      />
+
+      <br><br>
+
+      <p>Answer:</p>
+
+      <input
+        type="text"
+        id="customAnswer"
+        placeholder="Enter the answer"
+        required
+      />
+    </div>
+`;
+
 }
 
 loadQuestions();
