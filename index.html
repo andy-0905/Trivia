@@ -98,7 +98,7 @@ async function loadQuestions(){
 
       <h3>Question 4</h3>
 
-      <p>Create your own trivia question:</p>
+      <p>Create your own trivia question about yourself:</p>
 
       <input
         type="text"
@@ -151,7 +151,10 @@ async function(e){
           `answer${index}`
         ).value
 
-      }))
+      })),
+
+      customQuestion: document.getElementById("customQuestion").value,
+      customAnswer: document.getElementById("customAnswer").value
     };
 
     await fetch(
