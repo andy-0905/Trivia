@@ -136,6 +136,12 @@ async function(e){
       "Thanks! Your responses have been recorded."
     );
 
+    // Clear form
+    document.getElementById("quizForm").reset();
+
+    // Clear generated questions
+    document.getElementById("questions").innerHTML = "";
+
     document
       .getElementById("quizForm")
       .reset();
