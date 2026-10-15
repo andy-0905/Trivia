@@ -38,5 +38,57 @@
   {
     "id": 10,
     "question": "What is your favourite snack?"
+  },
+  {
+    "id": 11,
+    "question": "What's the funniest thing that happened to you this year?"
+  },
+  {
+    "id": 12,
+    "question": "What's a hidden talent you have?"
+  },
+  {
+    "id": 13,
+    "question": "What's the best meal you've ever eaten?"
+  },
+  {
+    "id": 14,
+    "question": "If you could live anywhere in the world, where would it be?"
+  },
+  {
+    "id": 15,
+    "question": "If you could have any superpower, what would it be?"
+  },
+  {
+    "id": 16,
+    "question": "What's your favourite hymn?"
+  },
+  {
+    "id": 17,
+    "question": "Describe your week in three words."
+  },
+  {
+    "id": 18,
+    "question": "What's something you're grateful for this week?"
+  },
+  {
+    "id": 19,
+    "question": "Share a time that God answers your prayer."
+  },
+  {
+    "id": 20,
+    "question": "Which Bible character do you relate to most?"
+  },
+  {
+    "id": 21,
+    "question": "What's your favourite Bible verse?"
+  },
+  {
+    "id": 22,
+    "question": "Last thing that made you laugh out loud?"
+  },
+  {
+    "id": 23,
+    "question": "What's a small thing that makes your day better?"
   }
 ]
